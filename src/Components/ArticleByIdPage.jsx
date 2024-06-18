@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
 import ArticleDetails from "./ArticleByIdPageComponents/ArticleDetails";
 import Votes from "./ArticleByIdPageComponents/Votes";
 import CommentsSection from "./ArticleByIdPageComponents/CommentsSection";
+import { getArticleById } from "../api";
 
 
 const ArticleByIdPage =()=>{
@@ -13,15 +13,14 @@ const ArticleByIdPage =()=>{
     const [articleById, setArticleById] = useState({})
     const [newVotes, setNewVotes] = useState(0)
 
-    const articlesApi = axios.create({
-        baseURL: "https://v2-nc-news-backend-project-northcoders.onrender.com"
-    })
+   
 
     useEffect(()=>{
         setIsLoading(true)
-        articlesApi.get(`/api/articles/${article_id}`).then(({data})=>{
+       getArticleById(article_id).then(({article})=>{
+       
              setIsLoading(false)
-             setArticleById(data.article)
+             setArticleById(article)
          })
      }, [])
 
