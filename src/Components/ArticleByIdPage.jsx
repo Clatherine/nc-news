@@ -33,6 +33,7 @@ const ArticleByIdPage =()=>{
         <section id="articleByIdPage">
         <ArticleDetails articleById={articleById} newVotes={newVotes}/>
         <Votes setNewVotes={setNewVotes}/>
+        <LeaveComment/>
         <CommentsSection/>
         </section>
     )
