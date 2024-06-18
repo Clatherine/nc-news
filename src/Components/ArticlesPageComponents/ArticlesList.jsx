@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-// import { getArticles } from "../../api";
+import { getArticles } from "../../api";
 import axios from "axios";
 import ArticleCard from "./ArticleCard";
 
@@ -9,16 +9,12 @@ const ArticlesList =()=>{
 const [articlesList, setArticlesList] = useState([])
 const [isLoading, setIsLoading] = useState(true)
 
-const articlesApi = axios.create({
-    baseURL: "https://v2-nc-news-backend-project-northcoders.onrender.com"
-})
 useEffect(()=>{
-   articlesApi.get("/api/articles").then(({data})=>{
-        console.log(data.articles)
+    getArticles().then((data)=>{
         setIsLoading(false)
-        setArticlesList(data.articles)
-    })
-}, [])
+         setArticlesList(data.articles)
+    })}
+    , [])
 
 if(isLoading){
     return (<section id="loading">
@@ -27,15 +23,13 @@ if(isLoading){
 }
     return (<section id="articlesListBox">
         <h2>Articles</h2>
-        <section id="articlesList">
+        <ul id="articlesList">
             {articlesList.map((article)=>{
                 return ( 
-                <li key={article.articleId}>
-                <ArticleCard  article={article}/>
-                </li>
+                <ArticleCard key={article.articleId} article={article}/>
             )
             })}
-        </section>
+        </ul>
         </section>
        
     )

@@ -5,7 +5,7 @@ const ArticleCard =({article}) =>{
 
 
     return(
-        <div className="articleCard">
+        <li className="articleCard">
             <h3>{article.title}</h3>
             <div className = "card_main">
             <div className="text">
@@ -22,7 +22,7 @@ const ArticleCard =({article}) =>{
             <button> <Link to={`/${article.article_id}`}>Read article</Link></button>
         </div>
 
-        </div>
+        </li>
     )
 }
 
