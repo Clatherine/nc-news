@@ -30,5 +30,8 @@ export const patchVotes=(article_id, newVotes)=>{
    }
 
 export const postComment =(article_id, username, body)=>{
-   return articlesApi.post(`/api/articles/${article_id}`, {username, body})
+
+   return articlesApi.post(`/api/articles/${article_id}/comments`, {username: username, body: body}).then((res)=>{
+      return res.data
+   })
 }

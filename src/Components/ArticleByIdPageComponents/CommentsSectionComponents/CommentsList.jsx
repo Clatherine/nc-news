@@ -4,19 +4,13 @@ import axios from "axios";
 import CommentCard from "./CommentCard";
 import { getComments } from "../../../api";
 
-const CommentsList =()=>{
+const CommentsList =({commentsList, isLoading})=>{
 
-    const [commentsList, setCommentsList] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const { article_id } = useParams();
-
-    useEffect(()=>{
-        setIsLoading(true)
-        getComments(article_id).then((data)=>{
-                setIsLoading(false)
-                setCommentsList(data.comments)
-            })
-        }, [])
+   if(isLoading){
+    return(
+        <p>Comments incoming...</p>
+    )
+   }
 
     return(<section>
         {commentsList.map((comment)=>{
