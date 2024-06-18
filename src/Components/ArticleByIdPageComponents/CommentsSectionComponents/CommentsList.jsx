@@ -11,6 +11,7 @@ const CommentsList =()=>{
     const { article_id } = useParams();
 
     useEffect(()=>{
+        setIsLoading(true)
         getComments(article_id).then((data)=>{
                 setIsLoading(false)
                 setCommentsList(data.comments)
