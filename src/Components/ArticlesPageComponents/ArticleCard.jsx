@@ -19,7 +19,7 @@ const ArticleCard =({article}) =>{
             </div>
             <img className="article_image" src={article.article_img_url}/>
             <div className="readButton">
-            <button>Read article</button>
+            <button> <Link to={`/${article.article_id}`}>Read article</Link></button>
         </div>
 
         </div>
