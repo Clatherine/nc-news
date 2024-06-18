@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-// import { getArticles } from "../../api";
-import axios from "axios";
+import { getArticles } from "../../api";
 import ArticleCard from "./ArticleCard";
 
 const ArticlesList =()=>{
@@ -9,16 +8,13 @@ const ArticlesList =()=>{
 const [articlesList, setArticlesList] = useState([])
 const [isLoading, setIsLoading] = useState(true)
 
-const articlesApi = axios.create({
-    baseURL: "https://v2-nc-news-backend-project-northcoders.onrender.com"
-})
 useEffect(()=>{
-   articlesApi.get("/api/articles").then(({data})=>{
-        console.log(data.articles)
-        setIsLoading(false)
-        setArticlesList(data.articles)
-    })
-}, [])
+
+getArticles().then((data)=>{
+    setIsLoading(false)
+     setArticlesList(data.articles)
+})}
+, [])
 
 if(isLoading){
     return (<section id="loading">

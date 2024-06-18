@@ -8,5 +8,11 @@ export const getArticles = () =>{
    .then((res) =>{
     return res.data
    })
+}
 
+export const getComments =(article_id)=>{
+   return articlesApi.get(`/api/articles/${article_id}/comments`)
+   .then((res)=>{
+      return res.data
+   })
 }
