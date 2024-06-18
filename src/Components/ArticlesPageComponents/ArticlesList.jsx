@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { getArticles } from "../../api";
+// import { getArticles } from "../../api";
 import axios from "axios";
 import ArticleCard from "./ArticleCard";
 
@@ -19,7 +19,13 @@ useEffect(()=>{
         setArticlesList(data.articles)
     })
 }, [])
-    return (<section >
+
+if(isLoading){
+    return (<section id="loading">
+        <p>Articles list is loading</p>
+    </section>)
+}
+    return (<section id="articlesListBox">
         <h2>Articles</h2>
         <section id="articlesList">
             {articlesList.map((article)=>{

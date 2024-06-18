@@ -6,6 +6,7 @@ import Header from './Components/Header'
 import NavigationBar from './Components/NavigationBar'
 import ArticlesPage from './Components/ArticlesPage'
 import Footer from './Components/Footer';
+import ArticleByIdPage from './Components/ArticleByIdPage';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
     <NavigationBar/>
     <Routes>
       <Route path ="/" element={<ArticlesPage/>}/>
+      <Route path="/:article_id" element={<ArticleByIdPage/>}/>
       </Routes>
    <Footer/>
     </>
