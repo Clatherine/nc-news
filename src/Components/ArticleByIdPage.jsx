@@ -8,16 +8,17 @@ import CommentsSection from "./ArticleByIdPageComponents/CommentsSection";
 
 const ArticleByIdPage =()=>{
 
-    const [votes, setVotes] = useState(0)
     const { article_id } = useParams();
     const [isLoading, setIsLoading] = useState(true)
     const [articleById, setArticleById] = useState({})
+    const [newVotes, setNewVotes] = useState(0)
 
     const articlesApi = axios.create({
         baseURL: "https://v2-nc-news-backend-project-northcoders.onrender.com"
     })
 
     useEffect(()=>{
+        setIsLoading(true)
         articlesApi.get(`/api/articles/${article_id}`).then(({data})=>{
              setIsLoading(false)
              setArticleById(data.article)
@@ -30,8 +31,8 @@ const ArticleByIdPage =()=>{
 
     return (
         <section id="articleByIdPage">
-        <ArticleDetails articleById={articleById}/>
-        <Votes/>
+        <ArticleDetails articleById={articleById} newVotes={newVotes}/>
+        <Votes setNewVotes={setNewVotes}/>
         <CommentsSection/>
         </section>
     )

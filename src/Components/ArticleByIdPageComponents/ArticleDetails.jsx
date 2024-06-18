@@ -1,4 +1,5 @@
-const ArticleDetails = ({ articleById }) => {
+const ArticleDetails = ({ articleById , newVotes}) => {
+  
   return (
     <section id="articleDetails">
       <div className="articleDiv" id="topDetails">
@@ -14,7 +15,7 @@ const ArticleDetails = ({ articleById }) => {
         <div className="articleDivInner" id="img_div"><img src={articleById.article_img_url} /></div>
         <div className="articleDivInner" id="p_div"><p>{articleById.body}</p></div>
       </div>
-      <div id="votes">Votes: {articleById.votes}</div>
+      <div id="votes">Votes: {articleById.votes+newVotes>=0?articleById.votes + newVotes: 0}</div>
     </section>
   );
 };

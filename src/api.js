@@ -17,3 +17,7 @@ export const getComments =(article_id)=>{
       return res.data
    })
 }
+
+export const patchVotes=(article_id, newVotes)=>{
+   return articlesApi.patch(`/api/articles/${article_id}`, {inc_votes: newVotes})
+   }

@@ -18,7 +18,7 @@ function App() {
     <NavigationBar/>
     <Routes>
       <Route path ="/" element={<ArticlesPage/>}/>
-      <Route path="/:article_id" element={<ArticleByIdPage/>}/>
+      <Route path="articles/:article_id" element={<ArticleByIdPage/>}/>
       </Routes>
    <Footer/>
     </>

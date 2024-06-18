@@ -26,7 +26,7 @@ if(isLoading){
         <ul id="articlesList">
             {articlesList.map((article)=>{
                 return ( 
-                <ArticleCard key={article.articleId} article={article}/>
+                <ArticleCard key={article.article_id} article={article}/>
             )
             })}
         </ul>
