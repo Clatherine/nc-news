@@ -1,5 +1,9 @@
-const ArticleDetails = ({ articleById , newVotes}) => {
+const ArticleDetails = ({ articleById , newVotes, setVotesErrorMessage}) => {
   
+if(articleById.votes+newVotes>0){
+  setVotesErrorMessage("")
+}
+
   return (
     <section id="articleDetails">
       <div className="articleDiv" id="topDetails">
@@ -15,7 +19,9 @@ const ArticleDetails = ({ articleById , newVotes}) => {
         <div className="articleDivInner" id="img_div"><img src={articleById.article_img_url} /></div>
         <div className="articleDivInner" id="p_div"><p>{articleById.body}</p></div>
       </div>
-      <div id="votes">Votes: {articleById.votes+newVotes>=0?articleById.votes + newVotes: 0}</div>
+      <div id="votes"><p>Votes: &nbsp;
+      <span>{articleById.votes+newVotes>=0? articleById.votes + newVotes: 0}</span></p>
+      </div>
     </section>
   );
 };

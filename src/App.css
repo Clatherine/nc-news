@@ -308,3 +308,18 @@ form button {
   align-self: flex-end;
   margin-right: 15px
 }
+
+#commentErrorMessage {
+  color:#1a1a1a;
+  align-self: center;
+}
+
+#bottomOfForm{
+  display: flex;
+
+}
+
+button:disabled {
+  cursor: not-allowed; 
+  opacity: 0.5; 
+}

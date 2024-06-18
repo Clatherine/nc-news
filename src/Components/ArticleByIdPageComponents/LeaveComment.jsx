@@ -8,16 +8,27 @@ const LeaveComment = ({ setCommentsList }) => {
   const { article_id } = useParams();
   const mystery = useContext(UserContext);
   const [commentBody, setCommentBody] = useState("");
+  const[errorMessage, setErrorMessage] = useState("")
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const button = document.getElementById("comment-submit")
+    button.disabled = true;
     postComment(article_id, mystery.user.username, commentBody).then((res) => {
-      console.log(res, "res");
+        console.log(res, 'res')
+       button.disabled=false
+       if (!res.addedComment) {
+        throw new Error('The response does not contain the expected "addedComment" property.');
+      }
       setCommentBody("");
       setCommentsList((comments) => {
         return [res.addedComment, ...comments];
       });
-    });
+    }).catch((err)=>{
+        console.log('entering here')
+        button.disbled=false;
+        setErrorMessage('Sorry! There is a problem posting your comment, please try again later.')
+    })
   };
 
   const handleChange = (event) => {
@@ -37,7 +48,10 @@ const LeaveComment = ({ setCommentsList }) => {
         value={commentBody}
         required
       />
-      <button>Submit</button>
+       <div id="bottomOfForm">
+        <p id="commentErrorMessage">{errorMessage}</p>
+        <button id="comment-submit">Submit</button></div>
+     
     </form>
   );
 };

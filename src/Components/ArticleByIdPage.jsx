@@ -12,7 +12,7 @@ const ArticleByIdPage =()=>{
     const [isLoading, setIsLoading] = useState(true)
     const [articleById, setArticleById] = useState({})
     const [newVotes, setNewVotes] = useState(0)
-    
+    const [votesErrorMessage, setVotesErrorMessage]= useState("")
 
     useEffect(()=>{
         setIsLoading(true)
@@ -29,8 +29,8 @@ const ArticleByIdPage =()=>{
 
     return (
         <section id="articleByIdPage">
-        <ArticleDetails articleById={articleById} newVotes={newVotes}/>
-        <Votes setNewVotes={setNewVotes}/>
+        <ArticleDetails articleById={articleById} newVotes={newVotes} setVotesErrorMessage={setVotesErrorMessage}/>
+        <Votes setNewVotes={setNewVotes} setVotesErrorMessage={setVotesErrorMessage} votesErrorMessage={votesErrorMessage}/>
         <CommentsSection />
         </section>
     )
