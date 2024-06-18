@@ -4,7 +4,7 @@ import ArticleDetails from "./ArticleByIdPageComponents/ArticleDetails";
 import Votes from "./ArticleByIdPageComponents/Votes";
 import CommentsSection from "./ArticleByIdPageComponents/CommentsSection";
 import { getArticleById } from "../api";
-
+import LeaveComment from "./ArticleByIdPageComponents/LeaveComment";
 
 const ArticleByIdPage =()=>{
 
@@ -12,8 +12,6 @@ const ArticleByIdPage =()=>{
     const [isLoading, setIsLoading] = useState(true)
     const [articleById, setArticleById] = useState({})
     const [newVotes, setNewVotes] = useState(0)
-
-   
 
     useEffect(()=>{
         setIsLoading(true)
@@ -32,6 +30,7 @@ const ArticleByIdPage =()=>{
         <section id="articleByIdPage">
         <ArticleDetails articleById={articleById} newVotes={newVotes}/>
         <Votes setNewVotes={setNewVotes}/>
+        <LeaveComment/>
         <CommentsSection/>
         </section>
     )

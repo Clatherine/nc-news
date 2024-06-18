@@ -7,11 +7,13 @@ import NavigationBar from './Components/NavigationBar'
 import ArticlesPage from './Components/ArticlesPage'
 import Footer from './Components/Footer';
 import ArticleByIdPage from './Components/ArticleByIdPage';
+import { UserProvider } from './UserContext';
 
 function App() {
 
 
   return (
+    <UserProvider>
     <BrowserRouter>
     <>
     <Header/>
@@ -23,6 +25,7 @@ function App() {
    <Footer/>
     </>
     </BrowserRouter>
+    </UserProvider>
   )
 }
 

@@ -62,7 +62,6 @@ box-sizing: border-box;
  justify-content: space-between;
  flex:1 1 auto;
  max-width: 350px;
- height: 90%;
 }
 
 .card_main{
@@ -115,10 +114,16 @@ h3{
 header{
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
  
+}
+
+header p{
+  align-self:flex-end;
+  margin-right: 50px;
 }
 
 h1{
@@ -234,8 +239,8 @@ flex-basis: 400px;
 }
 
 #downvote{
-  background-color: rgb(234, 62, 174);
-  border: #f3c7c7 solid;
+  background-color: rgb(62, 108, 234);
+  border: rgb(154, 175, 231)solid;
   color: white;
 }
 
@@ -269,4 +274,38 @@ margin: 5% 10%;
 
 #commentsSearchSection{
   margin: 20px;
+}
+
+#comment-body{
+  
+  height: 100px;
+  margin: 20px 20px 0px 20px ;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+
+}
+
+#comment_label{
+  align-self: flex-start;
+  color:#19191a;
+  font-weight: 800;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #9adf77;
+  border-radius: 15px;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 10px;
+ margin-top:20px;
+ margin-bottom:20px;
+}
+
+form button {
+  align-self: flex-end;
+  margin-right: 15px
 }

@@ -28,3 +28,7 @@ export const getComments =(article_id)=>{
 export const patchVotes=(article_id, newVotes)=>{
    return articlesApi.patch(`/api/articles/${article_id}`, {inc_votes: newVotes})
    }
+
+export const postComment =(article_id, username, body)=>{
+   return articlesApi.post(`/api/articles/${article_id}`, {username, body})
+}
