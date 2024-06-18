@@ -7,7 +7,7 @@ const ArticleDetails = ({ articleById }) => {
           By <span>{articleById.author}</span>
         </p>
         <p>
-          Posted <span>{articleById.created_at}</span>
+          Posted <span>{articleById.created_at.substring(0,10)}</span>
         </p>
       </div>
       <div className="articleDiv" id="img_text">
