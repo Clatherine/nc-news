@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import ArticleDetails from "./ArticleByIdPageComponents/ArticleDetails";
 import Votes from "./ArticleByIdPageComponents/Votes";
+import CommentsSection from "./ArticleByIdPageComponents/CommentsSection";
+
 
 const ArticleByIdPage =()=>{
 
@@ -27,10 +29,11 @@ const ArticleByIdPage =()=>{
       }
 
     return (
-        <>
+        <section id="articleByIdPage">
         <ArticleDetails articleById={articleById}/>
         <Votes/>
-        </>
+        <CommentsSection/>
+        </section>
     )
 }
 

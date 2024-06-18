@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const NextPageButton =({page, setPage}) =>{
     return (
-        <section>
+        <section id="nextPageContainer">
             <p>Page: {page}</p>
         <button>Next Page</button>
         </section>

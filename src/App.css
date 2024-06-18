@@ -169,8 +169,6 @@ h2{
 }
 
 #articleDetails {
-
-margin: 50px 100px;
 display: flex;
 flex-wrap: wrap;
 flex-direction: column;
@@ -230,13 +228,45 @@ flex-basis: 400px;
 }
 
 #upvote{
-  background-color: green;
-  border: none;
+  background-color: rgb(28, 145, 28);
+  border: #9adf77 solid;
   color: white;
 }
 
 #downvote{
-  background-color: red;
-  border: none;
+  background-color: rgb(234, 62, 174);
+  border: #f3c7c7 solid;
   color: white;
+}
+
+#articleByIdPage{
+margin: 100px;
+}
+
+#commentcardcontainer{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#commentCard{
+  margin-bottom: 20px;
+  padding:15px;
+  display: flex;
+  flex-direction: column;
+  /* border: dashed #9adf77 10px; */
+  background-color: #eac8c8;
+  border-radius: 10px;
+  color:#1a1a1a;
+
+}
+
+#comment_body{
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+#commentsSearchSection{
+  margin: 20px;
 }

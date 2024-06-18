@@ -1,7 +1,7 @@
 import ArticlesList from "./ArticlesPageComponents/ArticlesList";
 import ArticlesSearch from "./ArticlesPageComponents/ArticlesSearch";
 import { useState } from "react";
-import NextPageButton from "./ArticlesPageComponents/NextPageButton";
+import NextPageButton from "./NextPageButton";
 const ArticlesPage =()=>{
 
     const [topic, setTopic] = useState('')
