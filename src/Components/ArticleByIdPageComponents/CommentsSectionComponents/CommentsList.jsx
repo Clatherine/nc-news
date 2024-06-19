@@ -1,10 +1,6 @@
-import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import axios from "axios";
 import CommentCard from "./CommentCard";
-import { getComments } from "../../../api";
 
-const CommentsList =({commentsList, isLoading})=>{
+const CommentsList =({commentsList, isLoading, setCommentsList})=>{
 
    if(isLoading){
     return(
@@ -16,7 +12,7 @@ const CommentsList =({commentsList, isLoading})=>{
         {commentsList.map((comment)=>{
                 return ( 
                 <li key={comment.comment_id}>
-                <CommentCard  comment={comment}/>
+                <CommentCard  setCommentsList={setCommentsList} comment={comment}/>
                 </li>
             )
             })}

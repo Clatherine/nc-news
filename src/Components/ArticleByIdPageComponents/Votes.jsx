@@ -2,7 +2,7 @@ import { patchVotes } from "../../api"
 import { useParams} from "react-router-dom";
 import { useState } from "react";
 
-const Votes =({setNewVotes, votesErrorMessage, setVotesErrorMessage})=>{
+const Votes =({setNewVotes, votesErrorMessage, setVotesErrorMessage, currentVotes, newVotes})=>{
 
     const { article_id } = useParams();
 
@@ -10,7 +10,9 @@ const Votes =({setNewVotes, votesErrorMessage, setVotesErrorMessage})=>{
         setNewVotes((votes)=>{
             return votes+1
         })
-        patchVotes(article_id, 1)
+        setVotesErrorMessage("")
+        patchVotes(article_id, 1).then(()=>{
+        })
         .catch((err)=>{
             setNewVotes((votes)=>{
                 return votes-1
@@ -22,15 +24,15 @@ const handleClickDown=(event)=>{
 setNewVotes((votes)=>{
     return votes-1
 })
-patchVotes(article_id, -1).then(()=>{
-})
-.catch((err)=>{
-setVotesErrorMessage("Votes cannot go below 0!")
-console.error(err)
+if(currentVotes+newVotes<=0){
+    setVotesErrorMessage("Votes cannot go below 0!")
     setNewVotes((votes)=>{
         return votes+1
     })
-})
+}
+else{
+    console.log(currentVotes+newVotes)
+patchVotes(article_id, -1)}
 }
 
 return(

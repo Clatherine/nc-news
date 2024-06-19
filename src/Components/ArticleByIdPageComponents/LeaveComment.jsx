@@ -15,7 +15,6 @@ const LeaveComment = ({ setCommentsList }) => {
     const button = document.getElementById("comment-submit")
     button.disabled = true;
     postComment(article_id, mystery.user.username, commentBody).then((res) => {
-        console.log(res, 'res')
        button.disabled=false
        if (!res.addedComment) {
         throw new Error('The response does not contain the expected "addedComment" property.');
@@ -25,7 +24,6 @@ const LeaveComment = ({ setCommentsList }) => {
         return [res.addedComment, ...comments];
       });
     }).catch((err)=>{
-        console.log('entering here')
         button.disbled=false;
         setErrorMessage('Sorry! There is a problem posting your comment, please try again later.')
     })

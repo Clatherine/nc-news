@@ -26,7 +26,7 @@ return (
         <LeaveComment setCommentsList={setCommentsList}/>
         <h2>Comments</h2>
        <CommentsSearch/>
-       <CommentsList commentsList={commentsList} isLoading={isLoading}/>
+       <CommentsList commentsList={commentsList} isLoading={isLoading} setCommentsList={setCommentsList}/>
   <NextPageButton page={page} setPage={setPage}/>
     </section>
 )
