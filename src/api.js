@@ -28,7 +28,6 @@ export const getComments =(article_id)=>{
 export const patchVotes=(article_id, newVotes)=>{
    return articlesApi.patch(`/api/articles/${article_id}`, {inc_votes: newVotes})
    .catch((err)=>{
-      // console.error(err)
    throw err})
    }
 
@@ -39,6 +38,15 @@ export const postComment =(article_id, username, body)=>{
          throw new Error('Invalid response structure');
        }
       return res.data
+   })
+   .catch((err)=>{
+      console.error(err)
+      throw err
+   })
+}
+
+export const deleteComment = (comment_id)=>{
+   return articlesApi.delete(`api/comments/${comment_id}`).then((res)=>{
    })
    .catch((err)=>{
       console.error(err)
