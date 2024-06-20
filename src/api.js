@@ -52,7 +52,7 @@ export const postComment =(article_id, username, body)=>{
 }
 
 export const deleteComment = (comment_id)=>{
-   return articlesApi.delete(`/api/cmments/${comment_id}`)
+   return articlesApi.delete(`/api/comments/${comment_id}`)
    .catch((err)=>{
       console.error(err)
       throw err

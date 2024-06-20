@@ -7,6 +7,7 @@ import { deleteComment } from "../../../api";
 const CommentCard =({comment, setCommentsList})=>{
 const mystery = useContext(UserContext);
 const [isUser, setIsUser] = useState(false)
+const [error, setError] =useState(false)
 
 useEffect(()=>{if(comment.author === mystery.user.username){
     setIsUser(true)
@@ -17,31 +18,30 @@ const handleClick=()=>{
     const id=comment.comment_id
     const button = document.getElementById(id)
 button.disabled=true;
-setCommentsList((commentsList)=>{
-    const list = [...commentsList]
-    const updatedList = list.filter((comment)=>{
-        if(comment.comment_id !==id){
-            return comment
-        }
-    })
-    return updatedList
-        })
-deleteComment(comment.comment_id)
-.catch((err)=>{
+deleteComment(comment.comment_id).then(()=>{
     setCommentsList((commentsList)=>{
         const list = [...commentsList]
-        list.push(comment)
-        // list.sort((a,b)=> a.comment_id-b.comment_id )
-        console.log(Number(comment.created_at), 'created_at')
-        list.sort((a,b)=> Number(a.created_at)-Number(b.created_at))
-        console.log(list, 'list from catch')
-        return list
-    })
+        const updatedList = list.filter((comment)=>{
+            if(comment.comment_id !==id){
+                return comment
+            }
+        })
+        return updatedList
+            })
+})
+.catch((err)=>{
+    // setIsError(true)
+    // setTimeout(setIsError, 2500, false)
+    setError(true)
+    setTimeout(setError, 2500, false)
+    button.disabled=false;
+  
 })
 }
 
 return(
 <div id="commentCard">
+<p  style={{ visibility: error? 'visible' : 'hidden' }}>Apologies, comment could not be deleted.</p>
 <p id="comment_body">{comment.body}</p>
 <div id="commentcardcontainer">
 <div>

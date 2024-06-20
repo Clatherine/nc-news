@@ -347,3 +347,7 @@ button:disabled {
 #topic_dropdown{
   margin: 10px;
 }
+
+#comment_post_error{
+  margin: 15px
+}
