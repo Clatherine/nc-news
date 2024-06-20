@@ -7,6 +7,7 @@ import { deleteComment } from "../../../api";
 const CommentCard =({comment, setCommentsList})=>{
 const mystery = useContext(UserContext);
 const [isUser, setIsUser] = useState(false)
+const [error, setError] =useState(false)
 
 useEffect(()=>{if(comment.author === mystery.user.username){
     setIsUser(true)
@@ -19,19 +20,28 @@ const handleClick=()=>{
 button.disabled=true;
 deleteComment(comment.comment_id).then(()=>{
     setCommentsList((commentsList)=>{
-const list = [...commentsList]
-const updatedList = list.filter((comment)=>{
-    if(comment.comment_id !==id){
-        return comment
-    }
+        const list = [...commentsList]
+        const updatedList = list.filter((comment)=>{
+            if(comment.comment_id !==id){
+                return comment
+            }
+        })
+        return updatedList
+            })
 })
-return updatedList
-    })
+.catch((err)=>{
+    // setIsError(true)
+    // setTimeout(setIsError, 2500, false)
+    setError(true)
+    setTimeout(setError, 2500, false)
+    button.disabled=false;
+  
 })
 }
 
 return(
 <div id="commentCard">
+<p  style={{ visibility: error? 'visible' : 'hidden' }}>Apologies, comment could not be deleted.</p>
 <p id="comment_body">{comment.body}</p>
 <div id="commentcardcontainer">
 <div>

@@ -1,12 +1,18 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
 
 const articlesApi = axios.create({baseURL: "https://v2-nc-news-backend-project-northcoders.onrender.com"})
 
-export const getArticles = () =>{
-   return articlesApi.get("/api/articles")
+export const getArticles = (topic) =>{
+   return articlesApi.get("/api/articles", {
+      params: {
+         topic: topic
+      }
+   })
    .then((res) =>{
     return res.data
+   })
+   .catch((err)=>{
+      throw err
    })
 
 }
@@ -46,10 +52,18 @@ export const postComment =(article_id, username, body)=>{
 }
 
 export const deleteComment = (comment_id)=>{
-   return articlesApi.delete(`api/comments/${comment_id}`).then((res)=>{
-   })
+   return articlesApi.delete(`/api/comments/${comment_id}`)
    .catch((err)=>{
       console.error(err)
+      throw err
+   })
+}
+
+export const getTopics = ()=>{
+   return articlesApi.get("/api/topics").then((res)=>{
+return res.data
+   })
+   .catch((err)=>{
       throw err
    })
 }

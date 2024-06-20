@@ -1,6 +1,8 @@
 import CommentCard from "./CommentCard";
+import { useEffect , useState } from "react";
 
 const CommentsList =({commentsList, isLoading, setCommentsList})=>{
+
 
    if(isLoading){
     return(
@@ -9,6 +11,7 @@ const CommentsList =({commentsList, isLoading, setCommentsList})=>{
    }
 
     return(<section>
+    
         {commentsList.map((comment)=>{
                 return ( 
                 <li key={comment.comment_id}>
