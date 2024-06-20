@@ -162,7 +162,15 @@ button a{
 
 #articlesSearch {
   margin: 20px;
+ color: green;
+ font-weight: 700;
 }
+
+/* #articlesSearch form {
+  display: flex;
+  flex-direction: column;
+} */
+ 
 
 #footer{
 padding: 40px;
@@ -316,7 +324,7 @@ form button {
 
 #bottomOfForm{
   display: flex;
-
+  flex-direction: column;
 }
 
 button:disabled {
@@ -330,4 +338,12 @@ button:disabled {
   color: white;
  align-self: flex-end;
  margin-right:0;
+}
+
+#comment-submit{
+  align-self: flex-end;
+}
+
+#topic_dropdown{
+  margin: 10px;
 }

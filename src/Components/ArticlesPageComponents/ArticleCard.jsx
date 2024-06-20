@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const ArticleCard =({article}) =>{
-
-
     return(
         <li className="articleCard">
             <h3>{article.title}</h3>

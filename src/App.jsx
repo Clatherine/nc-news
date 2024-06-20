@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from "react-router-dom";
 import './App.css'
@@ -19,7 +19,7 @@ function App() {
     <Header/>
     <NavigationBar/>
     <Routes>
-      <Route path ="/" element={<ArticlesPage/>}/>
+    <Route path ="/" element={<ArticlesPage/>}/>
       <Route path="articles/:article_id" element={<ArticleByIdPage/>}/>
       </Routes>
    <Footer/>
