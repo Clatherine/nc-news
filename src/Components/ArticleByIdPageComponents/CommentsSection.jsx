@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom"
 import { getComments } from "../../api"
 
 
-const CommentsSection =()=>{
+const CommentsSection =({isError})=>{
     const [commentsList, setCommentsList] = useState([])
     const {article_id} = useParams()
     const [page, setPage] = useState(1)
@@ -21,13 +21,18 @@ const CommentsSection =()=>{
             })
         }, [])
 
+        if(isError){
+            return (<>
+            </>)
+           }
+
 return (
     <section id="commentsSection">
         <LeaveComment setCommentsList={setCommentsList}/>
         <h2>Comments</h2>
-       <CommentsSearch/>
+       {/* <CommentsSearch/> */}
        <CommentsList commentsList={commentsList} isLoading={isLoading} setCommentsList={setCommentsList}/>
-  <NextPageButton page={page} setPage={setPage}/>
+  {/* <NextPageButton page={page} setPage={setPage}/> */}
     </section>
 )
 }

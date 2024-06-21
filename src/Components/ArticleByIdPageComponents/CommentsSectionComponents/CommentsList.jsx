@@ -3,12 +3,15 @@ import { useEffect , useState } from "react";
 
 const CommentsList =({commentsList, isLoading, setCommentsList})=>{
 
+  
 
    if(isLoading){
     return(
         <p>Comments incoming...</p>
     )
    }
+
+  
 
     return(<section>
     

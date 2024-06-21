@@ -15,7 +15,7 @@ const ArticlesPage = () => {
         setSearchParams={setSearchParams}
       />
       <ArticlesList searchParams={searchParams} />
-      <NextPageButton page={page} setPage={setPage} />
+      {/* <NextPageButton page={page} setPage={setPage} /> */}
     </>
   );
 };

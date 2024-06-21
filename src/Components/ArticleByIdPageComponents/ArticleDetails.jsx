@@ -3,12 +3,13 @@ import { getArticleById } from "../../api";
 import { useParams } from "react-router-dom";
 import Votes from "./Votes"
 
-const ArticleDetails = () => {
+const ArticleDetails = ({isError, setIsError}) => {
   const [articleById, setArticleById] = useState({})
   const {article_id} = useParams()
   const [isLoading, setIsLoading] = useState(true)
   const [newVotes, setNewVotes] = useState(0)
   const [votesErrorMessage, setVotesErrorMessage]= useState("")
+
 
 useEffect(()=>{
   setIsLoading(true)
@@ -16,15 +17,19 @@ useEffect(()=>{
  
        setIsLoading(false)
        setArticleById(article)
+   }).catch((err)=>{
+    console.log(err, 'err')
+    setIsLoading(false)
+    setIsError(true)
    })
 }, [])
 
-// if(articleById.votes+newVotes>0){
-//  
-// }
-
 if (isLoading) {
   return <p id="loading">Article getting ready for you...</p>;
+}
+
+if(isError) {
+  return <p id="articleIdError">That article does not exist! Please select an article from the Home page.</p>
 }
 
   return (
