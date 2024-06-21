@@ -13,9 +13,7 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  /* margin: 0 auto; */
   text-align: center;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #19191a;
@@ -52,7 +50,7 @@ ul{
 .articleCard{
   border: solid green 10px;
   border-radius: 25px;
-  background-color: rgb(199, 231, 220);
+  background-color: #c5f0af;
   color: #1a1a1a;
 box-sizing: border-box;
  margin: 20px; 
@@ -174,11 +172,6 @@ button a{
  justify-content: space-evenly;
 }
 
-/* #articlesSearch form {
-  display: flex;
-  flex-direction: column;
-} */
- 
 
 #footer{
 padding: 40px;
@@ -193,7 +186,6 @@ h2{
 display: flex;
 flex-wrap: wrap;
 flex-direction: column;
-
 }
 
 #articleDetails #topDetails{
@@ -275,7 +267,6 @@ margin: 5% 10%;
   padding:15px;
   display: flex;
   flex-direction: column;
-  /* border: dashed #9adf77 10px; */
   background-color: #f3c7c7;
   border-radius: 10px;
   color:#1a1a1a;
@@ -284,20 +275,21 @@ margin: 5% 10%;
 
 #comment_body{
   text-align: left;
-  margin-bottom: 10px;
   font-weight: 700;
 }
 
-#commentsSearchSection{
+/* #commentsSearchSection{
   margin: 20px;
-}
+} */
 
 #comment-body{
   height: 100px;
-  margin: 20px 20px 0px 20px ;
+  /* margin: 20px 20px 0px 20px ; */
   border-radius: 5px;
   border: none;
-  padding: 10px;
+  width:100%;
+  /* padding: 10px; */
+  border: red solid;
 
 }
 
@@ -305,6 +297,7 @@ margin: 5% 10%;
   align-self: flex-start;
   color:#19191a;
   font-weight: 800;
+  border: blue solid
 }
 
 form{
@@ -318,23 +311,26 @@ padding-right: 20px;
 padding-top: 10px;
  margin-top:20px;
  margin-bottom:20px;
-
+border: purple solid
 }
 
 form button {
   align-self: flex-end;
-  margin-right: 15px
+  margin-right: 15px;
+  border: white solid;
 }
 
 #commentErrorMessage {
   color:#1a1a1a;
   align-self: center;
-  margin:10px
+  /* margin:10px */
+  border: blue solid;
 }
 
 #bottomOfForm{
   display: flex;
   flex-direction: column;
+  border: slateblue solid
 }
 
 button:disabled {
@@ -390,6 +386,12 @@ button:disabled {
   
 }
 
-/* #changeable{
-  flex-grow:1
-} */
+#leaveCommentForm{
+  display: flex;
+  flex-direction: column;
+}
+
+#comment-body-div{
+  width: 100%;
+  flex-grow: 1
+}

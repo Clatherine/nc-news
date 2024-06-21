@@ -41,18 +41,19 @@ const LeaveComment = ({ setCommentsList }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label id="comment_label" htmlFor="comment-body">
+    <form id="leaveCommentForm" onSubmit={handleSubmit}>
+      <div id = "comment_label"><label htmlFor="comment-body">
         Add comment:{" "} 
-      </label> 
+      </label> </div>
+      <div id="comment-body-div">
       <textarea
+      id="comment-body"
         onChange={handleChange}
-        id="comment-body"
         type="text"
         name="comment-body"
         value={commentBody}
-        // required
       />
+      </div>
        <div id="bottomOfForm">
         <p id="commentErrorMessage">{errorMessage}</p>
         <button id="comment-submit">Submit</button></div>
