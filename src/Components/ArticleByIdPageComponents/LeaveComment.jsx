@@ -11,7 +11,13 @@ const LeaveComment = ({ setCommentsList }) => {
   const[errorMessage, setErrorMessage] = useState("")
 
   const handleSubmit = (event) => {
+    setErrorMessage("")
     event.preventDefault();
+  if(commentBody.trim()===""){
+    setErrorMessage('Comment cannot be blank!')
+    setTimeout(setErrorMessage, 2500, "")
+  }
+  else{
     const button = document.getElementById("comment-submit")
     button.disabled = true;
     postComment(article_id, mystery.user.username, commentBody).then((res) => {
@@ -25,8 +31,9 @@ const LeaveComment = ({ setCommentsList }) => {
       });
     }).catch((err)=>{
         button.disbled=false;
-        setErrorMessage('Sorry! There is a problem posting your comment, please try again later.')
-    })
+        setErrorMessage('Sorry! There was a problem posting your comment, please try again later.')
+        setTimeout(setErrorMessage, 2500, "")
+    })}
   };
 
   const handleChange = (event) => {
@@ -36,15 +43,15 @@ const LeaveComment = ({ setCommentsList }) => {
   return (
     <form onSubmit={handleSubmit}>
       <label id="comment_label" htmlFor="comment-body">
-        Add comment:{" "}
-      </label>
+        Add comment:{" "} 
+      </label> 
       <textarea
         onChange={handleChange}
         id="comment-body"
         type="text"
         name="comment-body"
         value={commentBody}
-        required
+        // required
       />
        <div id="bottomOfForm">
         <p id="commentErrorMessage">{errorMessage}</p>

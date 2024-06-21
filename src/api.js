@@ -24,7 +24,10 @@ export const getArticles = (topic, sort_by, order) => {
 export const getArticleById = (article_id) => {
   return articlesApi.get(`/api/articles/${article_id}`).then((res) => {
     return res.data;
-  });
+  })
+  .catch((err)=>{
+   throw err
+  })
 };
 
 export const getComments = (article_id) => {
