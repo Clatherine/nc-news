@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const ArticleCard =({article}) =>{
+
     return(
         <li className="articleCard">
             <h3>{article.title}</h3>
@@ -11,7 +12,8 @@ const ArticleCard =({article}) =>{
             <p> Posted on: {article.created_at.substring(0,10)}</p>
             </div>
             <div className="votes">
-                Votes: {article.votes}
+             <p>Votes: {article.votes}</p>  
+           <p>Comments: {article.comment_count}</p>
             </div>
             
             </div>
