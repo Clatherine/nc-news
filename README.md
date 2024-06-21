@@ -13,7 +13,7 @@ When you want to return to the home page to browse more articles, simply click t
 What are you waiting for? Let's head right on over to Hot Off the Press News at: 
 https://hot-off-the-press-news.netlify.app/
 
-Want to see what's happening behind the scenes in our API? Take a peek at: https://v2-nc-news-backend-project-northcoders.onrender.com/api
+Want to see what's happening behind the scenes in our API? Take a peek at: https://v2-nc-news-backend-project-northcoders.onrender.com/api.
 Repo link here: https://github.com/Clatherine/be-nc-news-.git
 
 Want to run me locally? 
