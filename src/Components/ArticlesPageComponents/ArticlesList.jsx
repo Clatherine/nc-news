@@ -36,8 +36,7 @@ const ArticlesList = ({ searchParams }) => {
     return (
       <section id="error">
         <p>
-          Topic in URL does not exist! Please select a topic from the dropdown
-          menu.
+          Topic, sort or order choice in URL does not exist! Please select options from the dropdown menus.
         </p>
       </section>
     );
