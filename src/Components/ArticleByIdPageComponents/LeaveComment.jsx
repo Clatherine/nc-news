@@ -42,10 +42,10 @@ const LeaveComment = ({ setCommentsList }) => {
 
   return (
     <form id="leaveCommentForm" onSubmit={handleSubmit}>
-      <div id = "comment_label"><label htmlFor="comment-body">
-        Add comment:{" "} 
+      <div className="commentDiv" id = "comment_label"><label htmlFor="comment-body">
+        Leave a comment:{" "} 
       </label> </div>
-      <div id="comment-body-div">
+      <div className="commentDiv" id="comment-body-div">
       <textarea
       id="comment-body"
         onChange={handleChange}
@@ -54,7 +54,7 @@ const LeaveComment = ({ setCommentsList }) => {
         value={commentBody}
       />
       </div>
-       <div id="bottomOfForm">
+       <div  className="commentDiv" id="bottomOfForm">
         <p id="commentErrorMessage">{errorMessage}</p>
         <button id="comment-submit">Submit</button></div>
      

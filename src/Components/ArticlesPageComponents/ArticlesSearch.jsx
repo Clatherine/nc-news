@@ -33,36 +33,38 @@ const ArticlesSearch = ({ setSearchParams, searchParams }) => {
 
   return (
     <section id="articlesSearch">
-      <div>
+      <div className="articlesSearchFlexItem" id="topic">
         <form className="form">
-          <div>
-            <label>Select topic</label>
-          </div>
-          <div>
-            <select
-              onChange={setTopic}
-              className="dropdown"
-              id="topic_dropdown"
-            >
-              <option value="all">All</option>
-              {topics.map((topic) => {
-                return (
-                  <option value={topic.slug} key={topic.slug}>
-                    {topic.slug[0].toUpperCase() + topic.slug.slice(1)}
-                  </option>
-                );
-              })}
-            </select>
+          <div className="formItem" /*id="firstFormItem"*/>
+            <div className="formItemPart">
+              <label>Select topic: </label>
+            </div>
+            <div className="formItemPart select">
+              <select
+                onChange={setTopic}
+                className="dropdown"
+                id="topic_dropdown"
+              >
+                <option value="all">All</option>
+                {topics.map((topic) => {
+                  return (
+                    <option value={topic.slug} key={topic.slug}>
+                      {topic.slug[0].toUpperCase() + topic.slug.slice(1)}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
           </div>
         </form>
       </div>
-      <div>
-        <form className="form" id="sort_form">
-          <div id="sort_by">
-            <div>
-              <label>Sort articles by: </label>
+      <div className="articlesSearchFlexItem" id="sortAndOrder">
+        <form className="form" id="SecondForm">
+          <div className="formItem secondFormFlexItem" id="sort_by">
+            <div className="formItemPart">
+              <label>Sort by: </label>
             </div>
-            <div>
+            <div className="formItemPart select">
               <select
                 onChange={setSort}
                 className="dropdown"
@@ -74,21 +76,24 @@ const ArticlesSearch = ({ setSearchParams, searchParams }) => {
               </select>
             </div>
           </div>
-          <div id="order">
-            <div>
+          <div className="formItem secondFormFlexItemItem" id="order">
+            <div className="formItemPart">
               <label>Order: </label>
+              </div>
+              <div className="formItemPart select">
+                <select
+                  onChange={setOrder}
+                  className="dropdown"
+                  id="order_dropdown"
+                >
+        
+                  <option value="desc">Descending</option>
+                  <option value="asc">Ascending</option>
+              
+                </select>
+              </div>
             </div>
-            <div>
-              <select
-                onChange={setOrder}
-                className="dropdown"
-                id="order_dropdown"
-              >
-                <option value="desc">Descending</option>
-                <option value="asc">Ascending</option>
-              </select>
-            </div>
-          </div>
+         
         </form>
       </div>
     </section>

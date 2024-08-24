@@ -17,6 +17,9 @@ body {
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #19191a;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 
@@ -53,42 +56,46 @@ ul{
   background-color: #c5f0af;
   color: #1a1a1a;
 box-sizing: border-box;
- margin: 20px; 
- padding:20px;
+ margin: 15px 15px ; 
+ padding:10px;
  display: flex;
  flex-direction:column;
  text-align: center;
- justify-content: space-between;
+ justify-content: space-evenly;
  flex:1 1 auto;
  max-width: 400px;
 }
 
 .card_main{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-
 }
 
-.text, .votes, .readButton{
-
+.card_main_item{
+  margin:10px ;
   display: flex;
-  align-items: center;
-  margin: 10px;
+  flex:1 1 auto;
 }
 
-.votes{
+.votes, .text{
   flex-direction: column;
+  display: flex;
+  align-items: flex-start;
 }
 
-.text{
-  flex-direction: column;
-}
-
-.text p{
+.text  p{
  margin: 0px;
- align-self: flex-start;
+ text-align: left;
+ justify-content: left;
+ justify-self: left;
+ align-self: left;
+ align-content: left;
 }
+
+.votes p{
+  margin: 0px;
+ }
 
 .readButton{
   color: pink;
@@ -99,13 +106,13 @@ box-sizing: border-box;
 #articlesList{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 0;
   margin:0;
 }
 
 #articlesListBox{
-  margin: 0 75px;
+  margin: 0 7.5%;
 }
 
 h3{
@@ -120,26 +127,40 @@ header{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  flex-wrap: wrap;
+  padding: 0px 30px;
+  padding-top: 30px;
  
 }
 
 header p{
   align-self:flex-end;
-  margin-right: 50px;
+  
 }
 
 h1{
-  margin: 0;
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 1em;
   color: rgb(253, 240, 255);
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+#fixedbar{
+  /* position: fixed; */
+  width: 100%;
+  background-color: #19191a;
 }
 
 #navigation{
 background-color: rgb(167, 29, 114);
 color: rgb(253, 240, 255);
-padding:10px;
+padding: 0.2%;
+font-weight: bold;
+/* margin: 10px; */
+/* position: fixed; */
+/* border: rgb(253, 240, 255) solid; */
+/* border-radius: 50px; */
 }
 
 button{
@@ -164,15 +185,14 @@ button a{
 }
 
 #articlesSearch {
-  margin: 20px;
  color: green;
  font-weight: 700;
  display: flex;
  flex-direction: row;
  justify-content: space-evenly;
+ margin:20px 10px ;
+ flex-wrap: wrap;
 }
-
-
 #footer{
 padding: 40px;
 text-align: right;
@@ -243,13 +263,13 @@ flex-basis: 400px;
 #upvote{
   background-color: rgb(28, 145, 28);
   border: #9adf77 solid;
-  color: white;
+  color: rgb(253, 240, 255);;
 }
 
 #downvote{
   background-color: rgb(62, 108, 234);
   border: rgb(154, 175, 231)solid;
-  color: white;
+  color: rgb(253, 240, 255);;
 }
 
 #articleByIdPage{
@@ -278,59 +298,59 @@ margin: 5% 10%;
   font-weight: 700;
 }
 
-/* #commentsSearchSection{
-  margin: 20px;
-} */
+#comment-body-div{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
 
 #comment-body{
   height: 100px;
-  /* margin: 20px 20px 0px 20px ; */
   border-radius: 5px;
   border: none;
   width:100%;
-  /* padding: 10px; */
-  border: red solid;
+  flex-grow: 1;
 
 }
+
+label {padding: 10px 0 5px}
 
 #comment_label{
   align-self: flex-start;
   color:#19191a;
   font-weight: 800;
-  border: blue solid
 }
 
-form{
+.form{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  flex-wrap: wrap;
   background-color: #9adf77;
   border-radius: 15px;
 padding-left: 20px;
 padding-right: 20px;
-padding-top: 10px;
- margin-top:20px;
- margin-bottom:20px;
-border: purple solid
+ justify-content: space-around;
 }
 
-form button {
-  align-self: flex-end;
-  margin-right: 15px;
-  border: white solid;
+select{
+  width:100%;
+   border: none;
+}
+
+.select{
+  flex-grow: 1;
+  display: flex;
 }
 
 #commentErrorMessage {
   color:#1a1a1a;
   align-self: center;
-  /* margin:10px */
-  border: blue solid;
 }
 
 #bottomOfForm{
   display: flex;
-  flex-direction: column;
-  border: slateblue solid
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 button:disabled {
@@ -341,13 +361,9 @@ button:disabled {
 .delete_button {
   background-color: rgb(62, 108, 234);
   border: rgb(154, 175, 231)solid;
-  color: white;
+  color: rgb(253, 240, 255);;
  align-self: flex-end;
  margin-right:0;
-}
-
-#comment-submit{
-  align-self: flex-end;
 }
 
 .dropdown{
@@ -355,16 +371,15 @@ button:disabled {
   padding:10px;
   max-width: 300px;
   border-radius: 25px;
-}
-
-#comment_post_error{
-  margin: 15px
+  display: flex;
 }
 
 .form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
+
+
 
 #sort_form{
   display: flex;
@@ -372,10 +387,10 @@ button:disabled {
 }
 
 #notfound{
-  height:100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: stretch;
+  align-content: center;
+  flex-grow: 1;
+  margin: 20px;
 }
 
 #wholepage{
@@ -391,7 +406,44 @@ button:disabled {
   flex-direction: column;
 }
 
-#comment-body-div{
-  width: 100%;
-  flex-grow: 1
+.commentDiv{
+  margin-bottom: 2%;
+}
+
+.articlesSearchFlexItem{
+  margin:  10px;
+
+}
+
+.formItem{
+  /* flex: 1 0 auto; */
+  flex-grow: 1;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+ justify-content: stretch;
+  align-items: center;
+  /* width: 100%; */
+}
+
+.formItemPart{
+  display: flex;
+
+}
+
+#topic{
+  flex-grow:1
+}
+
+#sortAndOrder{
+  flex-grow:3;
+}
+
+#comment_label{
+  color: rgb(253, 240, 255);
+}
+
+#commentErrorMessage{
+  color: rgb(253, 240, 255);
 }

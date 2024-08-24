@@ -26,6 +26,7 @@ setNewVotes((votes)=>{
 })
 if(currentVotes+newVotes<=0){
     setVotesErrorMessage("Votes cannot go below 0!")
+    setTimeout(setVotesErrorMessage, 2500, "")
     setNewVotes((votes)=>{
         return votes+1
     })

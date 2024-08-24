@@ -7,11 +7,11 @@ const ArticleCard =({article}) =>{
         <li className="articleCard">
             <h3>{article.title}</h3>
             <div className = "card_main">
-            <div className="text">
+            <div className="text card_main_item">
             <p>Author: {article.author}</p>
             <p> Posted on: {article.created_at.substring(0,10)}</p>
             </div>
-            <div className="votes">
+            <div className="votes card_main_item">
              <p>Votes: {article.votes}</p>  
            <p>Comments: {article.comment_count}</p>
             </div>

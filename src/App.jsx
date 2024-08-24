@@ -11,13 +11,14 @@ import { UserProvider } from './UserContext';
 import NotFound from './Components/NotFound';
 function App() {
 
-
   return (
     <UserProvider>
     <BrowserRouter>
     <div id='wholepage'>
+      <div id="fixedbar">
     <Header/>
     <NavigationBar/>
+    </div>
     <div id="changeable">
     <Routes>
     <Route path ="/" element={<ArticlesPage/>}/>
