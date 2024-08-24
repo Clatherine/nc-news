@@ -147,7 +147,6 @@ h1{
 }
 
 #fixedbar{
-  /* position: fixed; */
   width: 100%;
   background-color: #19191a;
 }
@@ -157,10 +156,6 @@ background-color: rgb(167, 29, 114);
 color: rgb(253, 240, 255);
 padding: 0.2%;
 font-weight: bold;
-/* margin: 10px; */
-/* position: fixed; */
-/* border: rgb(253, 240, 255) solid; */
-/* border-radius: 50px; */
 }
 
 button{
@@ -210,32 +205,26 @@ flex-direction: column;
 
 #articleDetails #topDetails{
   margin-bottom: 30px;
+  width: 100%
 }
 
 #articleDetails p{
   text-align: left;
 }
 
-#img_text{
+ #img_text{
   text-align: center; 
  display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 30px;
+  width: 100%
 }
 
 #articleDetails img{
 
   border-radius: 5px;
   max-width: 100%;
-}
-
-
-#img_text p{
-margin-left: 30px;
-word-wrap: break-word;
-min-width: 400px;
-max-width: 700px;
-flex-basis: 400px;
 }
 
 #loading{
@@ -254,6 +243,10 @@ flex-basis: 400px;
 
 #p_div{
   flex:3;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  min-width: 300px;
 }
 
 #votes{
@@ -287,8 +280,8 @@ margin: 5% 10%;
   padding:15px;
   display: flex;
   flex-direction: column;
-  background-color: #f3c7c7;
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 2px;
   color:#1a1a1a;
 
 }
