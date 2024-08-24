@@ -41,11 +41,9 @@ return(
 {isError? <p>Apologies, comment could not be deleted.</p> : null}
 <p id="comment_body">{comment.body}</p>
 <div id="commentcardcontainer">
-<div>
  <p>Posted by {comment.author} 
-at {comment.created_at.slice(11,19)} on {comment.created_at.slice(0,10)}</p> 
-</div>
-<div><p>Votes: {comment.votes}</p></div>
+ {" "}at {comment.created_at.slice(11,16)} on {comment.created_at.slice(0,10)}</p> 
+ <p>Votes: {comment.votes}</p>
 </div>
 {isUser? <button className="delete_button" id={comment.comment_id} onClick={handleClick}>Delete</button>: null}
 </div>

@@ -272,8 +272,16 @@ margin: 5% 10%;
 #commentcardcontainer{
   display: flex;
   justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
 
 }
+#commentcardcontainer p {
+padding: 0px;
+margin: 0px;
+text-align: left;
+}
+
 
 #commentCard{
   margin-bottom: 20px;
